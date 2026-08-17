@@ -1,18 +1,157 @@
-# React + Vite
+# React Query Product Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React product management application built as a hands-on learning project focused on TanStack Query (React Query).
 
-Currently, two official plugins are available:
+## 🎯 Project Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project was created to learn TanStack Query from scratch through a practical project instead of only following isolated tutorials.
 
-## React Compiler
+The application starts with basic data fetching and gradually introduces more advanced concepts such as:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Queries
+- Query keys
+- Query functions
+- Caching
+- Mutations
+- Query invalidation
+- Searching
+- Pagination
+- Server-state synchronization
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- JavaScript
+- TanStack Query
+- Tailwind CSS
+- Vite
+- REST API
+- Fetch API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📚 Topics covered
+
+### 🔍 Queries
+
+- QueryClient
+- QueryClientProvider
+- useQuery
+- queryKey
+- queryFn
+- Loading states
+- Error handling
+- Query caching
+- Stale data
+- Refetching
+
+### ✏️ Mutations
+
+- useMutation
+- Creating products
+- Updating products
+- Deleting products
+- Mutation loading states
+- Mutation error handling
+
+### 🗃️ Cache Management
+
+- Understanding the TanStack Query cache
+- Query invalidation
+- invalidateQueries
+- Keeping UI data synchronized with the server
+- Understanding cached vs. fresh data
+
+### 🔑 Query Keys
+
+- Understanding how query keys identify server data
+- Dynamic query keys
+- Query keys for individual products
+- Query keys for search and pagination
+
+### 🔎 Searching
+
+- Search state
+- Query parameters
+- Dynamic query keys
+- Fetching filtered server data
+
+### 📄 Pagination
+
+- Pagination state
+- Page-based queries
+- Pagination query keys
+- Fetching different pages
+- Keeping pagination state synchronized with server data
+
+## ✨ Features
+
+- 📦 Display products
+- 🔍 Search products
+- 📄 Paginate products
+- 👀 View product details
+- ➕ Create products
+- ✏️ Update products
+- 🗑️ Delete products
+- ⏳ Loading states
+- ❌ Error handling
+- 💾 Server-state caching
+- 🔄 Automatic refetching
+- ♻️ Query invalidation
+
+## 📁 Project Structure
+
+```text
+src/
+├── api/
+│   └── products.js
+│
+├── assets/
+│   └── hero.png
+│
+├── components/
+│   ├── Pagination.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductForm.jsx
+│   ├── ProductList.jsx
+│   └── SearchBar.jsx
+│
+├── hooks/
+│   ├── useCreateProduct.js
+│   ├── useDeleteProduct.js
+│   ├── useProduct.js
+│   ├── useProducts.js
+│   └── useUpdateProduct.js
+│
+├── pages/
+│   ├── ProductDetails.jsx
+│   └── Products.jsx
+│
+├── App.css
+├── App.jsx
+├── index.css
+└── main.jsx
+```
+
+## 🔄 Data Fetching Flow
+A typical product query follows this flow:
+
+```text
+User Action
+     ↓
+useMutation()
+     ↓
+API Function
+     ↓
+REST API
+     ↓
+Server Updated
+     ↓
+invalidateQueries()
+     ↓
+Fresh Server Data
+     ↓
+UI Updated
+```
+
+## 📌 Note
+This project is primarily an educational project created to demonstrate practical knowledge of TanStack Query.
+The product application is the vehicle for learning the library — the main focus is understanding server-state management with TanStack Query.
