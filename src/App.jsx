@@ -1,8 +1,8 @@
 import "./App.css";
-import useProducts from "./hooks/useProducts";
+import useProduct from "./hooks/useProduct";
 
 function App() {
-  const { data, isLoading, error } = useProducts();
+  const { data, isLoading, error } = useProduct(10);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -13,11 +13,10 @@ function App() {
   }
 
   return (
-    <ul>
-      {data.map((product) => (
-        <li key={product.id}>{product.title}</li>
-      ))}
-    </ul>
+    <div>
+      <h1>{data.title}</h1>
+      <p>{data.price}</p>
+    </div>
   );
 }
 
