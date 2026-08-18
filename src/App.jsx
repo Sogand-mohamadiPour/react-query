@@ -1,12 +1,8 @@
 import "./App.css";
-import { useQuery } from "@tanstack/react-query";
-import fetchProducts from "./api/products";
+import useProducts from "./hooks/useProducts";
 
 function App() {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["products"],
-    queryFn: fetchProducts,
-  });
+  const { data, isLoading, error } = useProducts();
 
   if (isLoading) {
     return <p>Loading...</p>;
