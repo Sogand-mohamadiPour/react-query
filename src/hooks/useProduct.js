@@ -5,6 +5,7 @@ const useProduct = (id) => {
   return useQuery({
     queryKey: ["product", id],
     queryFn: () => fetchProduct(id),
+    staleTime: 10 * 1000,
   });
 };
 

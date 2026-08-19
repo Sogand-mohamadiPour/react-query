@@ -1,22 +1,15 @@
-import "./App.css";
-import useProduct from "./hooks/useProduct";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
-  const { data, isLoading, error } = useProduct(10);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error!</p>;
-  }
-
   return (
-    <div>
-      <h1>{data.title}</h1>
-      <p>{data.price}</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
