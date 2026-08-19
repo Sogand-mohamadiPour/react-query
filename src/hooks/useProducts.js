@@ -6,6 +6,7 @@ const useProducts = () => {
     queryKey: ["products"],
     queryFn: fetchProducts,
     staleTime: 10 * 1000,
+    gcTime: 5 * 60 * 1000,
   });
 };
 

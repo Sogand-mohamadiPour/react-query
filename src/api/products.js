@@ -20,5 +20,21 @@ const fetchProduct = async (id) => {
   return response.json();
 };
 
-export { fetchProduct };
+const createProduct = async (product) => {
+  const response = await fetch("https://fakestoreapi.com/products", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(product),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to create product");
+  }
+
+  return response.json();
+};
+
+export { fetchProduct, createProduct };
 export default fetchProducts;
