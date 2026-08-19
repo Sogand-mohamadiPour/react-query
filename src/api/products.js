@@ -36,5 +36,44 @@ const createProduct = async (product) => {
   return response.json();
 };
 
-export { fetchProduct, createProduct };
+const updateProduct = async ({ id, product }) => {
+  const response = await fetch(
+    `https://fakestoreapi.com/products/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to update product");
+  }
+
+  return response.json();
+};
+
+const deleteProduct = async (id) => {
+  const response = await fetch(
+    `https://fakestoreapi.com/products/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to delete product");
+  }
+
+  return response.json();
+};
+
+export {
+  fetchProduct,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+};
 export default fetchProducts;

@@ -1,10 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import useProduct from "../hooks/useProduct";
+import useDeleteProduct from "../hooks/useDeleteProduct";
 
 function ProductDetails() {
     const { id } = useParams();
-
     const { data, isLoading, error } = useProduct(id);
+    const deleteMutation = useDeleteProduct();
 
     if (isLoading) {
         return (
@@ -64,7 +65,23 @@ function ProductDetails() {
                                 <span className="font-semibold text-gray-800">{id}</span>
                             </p>
                         </div>
+                        <Link
+                            to={`/products/${id}/edit`}
+                            className="mt-6 inline-block rounded-lg bg-indigo-600 px-5 py-3 font-semibold text-white text-center hover:bg-indigo-700"
+                        >
+                            Edit Product
+                        </Link>
+                        <button
+                            onClick={() => deleteMutation.mutate(id)}
+                            disabled={deleteMutation.isPending}
+                            className="mt-4 rounded-lg bg-red-600 px-5 py-3 font-semibold text-white hover:bg-red-700 disabled:opacity-50"
+                        >
+                            {deleteMutation.isPending
+                                ? "Deleting..."
+                                : "Delete Product"}
+                        </button>
                     </div>
+
                 </div>
             </div>
         </main>
