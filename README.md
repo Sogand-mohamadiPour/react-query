@@ -14,9 +14,8 @@ The application starts with basic data fetching and gradually introduces more ad
 - Caching
 - Mutations
 - Query invalidation
-- Searching
-- Pagination
 - Server-state synchronization
+- CRUD operation
 
 ## 🛠️ Tech Stack
 
@@ -42,6 +41,8 @@ The application starts with basic data fetching and gradually introduces more ad
 - Query caching
 - Stale data
 - Refetching
+- staleTime
+- gcTime
 
 ### ✏️ Mutations
 
@@ -67,26 +68,9 @@ The application starts with basic data fetching and gradually introduces more ad
 - Query keys for individual products
 - Query keys for search and pagination
 
-### 🔎 Searching
-
-- Search state
-- Query parameters
-- Dynamic query keys
-- Fetching filtered server data
-
-### 📄 Pagination
-
-- Pagination state
-- Page-based queries
-- Pagination query keys
-- Fetching different pages
-- Keeping pagination state synchronized with server data
-
 ## ✨ Features
 
 - 📦 Display products
-- 🔍 Search products
-- 📄 Paginate products
 - 👀 View product details
 - ➕ Create products
 - ✏️ Update products
@@ -96,40 +80,6 @@ The application starts with basic data fetching and gradually introduces more ad
 - 💾 Server-state caching
 - 🔄 Automatic refetching
 - ♻️ Query invalidation
-
-## 📁 Project Structure
-
-```text
-src/
-├── api/
-│   └── products.js
-│
-├── assets/
-│   └── hero.png
-│
-├── components/
-│   ├── Pagination.jsx
-│   ├── ProductCard.jsx
-│   ├── ProductForm.jsx
-│   ├── ProductList.jsx
-│   └── SearchBar.jsx
-│
-├── hooks/
-│   ├── useCreateProduct.js
-│   ├── useDeleteProduct.js
-│   ├── useProduct.js
-│   ├── useProducts.js
-│   └── useUpdateProduct.js
-│
-├── pages/
-│   ├── ProductDetails.jsx
-│   └── Products.jsx
-│
-├── App.css
-├── App.jsx
-├── index.css
-└── main.jsx
-```
 
 ## 🔄 Data Fetching Flow
 A typical product query follows this flow:
